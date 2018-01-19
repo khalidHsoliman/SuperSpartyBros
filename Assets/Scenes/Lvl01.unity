@@ -266,40 +266,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4256999719434482, guid: 2fdd20e1aac169c45a0f812ea99e6f66,
     type: 2}
   m_PrefabInternal: {fileID: 153466837}
---- !u!1 &170754286 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1417931105568736, guid: 24b7c851b9b93b548960e7b84ab0a77e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1053920793}
---- !u!114 &170754287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 170754286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25cb4f35dd7d4184aa699d43367da691, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  jumpForce: 600
-  playerHealth: 1
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 1536
-  groundCheck: {fileID: 606194784}
-  playerCanMove: 1
-  coinSFX: {fileID: 8300000, guid: a3ca87bd3844d8e4bbff32f7c5333285, type: 3}
-  deathSFX: {fileID: 8300000, guid: 3216f7c46a1dbf34eb3c97731e80e7ac, type: 3}
-  fallSFX: {fileID: 8300000, guid: 3044bfa963eccb147b49e1bf63b83994, type: 3}
-  jumpSFX: {fileID: 8300000, guid: a6b995db18c37474488a08feed52d63b, type: 3}
-  victorySFX: {fileID: 8300000, guid: c9e40497ee4001b45af368244ca16fc3, type: 3}
---- !u!4 &170754289 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4330269143833156, guid: 24b7c851b9b93b548960e7b84ab0a77e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1053920793}
 --- !u!1001 &223992926
 Prefab:
   m_ObjectHideFlags: 0
@@ -657,34 +623,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4256999719434482, guid: 2fdd20e1aac169c45a0f812ea99e6f66,
     type: 2}
   m_PrefabInternal: {fileID: 570318591}
---- !u!1 &606194783
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 606194784}
-  m_Layer: 8
-  m_Name: GroundCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &606194784
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 606194783}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 170754289}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &657932961
 Prefab:
   m_ObjectHideFlags: 0
@@ -1177,6 +1115,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4330269143833156, guid: 24b7c851b9b93b548960e7b84ab0a77e, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82430190850489868, guid: 24b7c851b9b93b548960e7b84ab0a77e,
+        type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

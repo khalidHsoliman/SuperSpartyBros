@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1417931105568736}
   m_IsPrefabParent: 1
+--- !u!1 &1078442756263778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4998029474653680}
+  m_Layer: 8
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1417931105568736
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,6 +40,7 @@ GameObject:
   - component: {fileID: 61684342179224656}
   - component: {fileID: 82430190850489868}
   - component: {fileID: 95365268704293254}
+  - component: {fileID: 114235231761780350}
   m_Layer: 8
   m_Name: Sparty
   m_TagString: Player
@@ -41,8 +57,22 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.256, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4998029474653680}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4998029474653680
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1078442756263778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.53, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4330269143833156}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50293751083096596
@@ -111,7 +141,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417931105568736}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -202,6 +232,30 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114235231761780350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417931105568736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cb4f35dd7d4184aa699d43367da691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  jumpForce: 600
+  playerHealth: 1
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1536
+  groundCheck: {fileID: 4998029474653680}
+  playerCanMove: 1
+  coinSFX: {fileID: 8300000, guid: a3ca87bd3844d8e4bbff32f7c5333285, type: 3}
+  deathSFX: {fileID: 8300000, guid: 3216f7c46a1dbf34eb3c97731e80e7ac, type: 3}
+  fallSFX: {fileID: 8300000, guid: 3044bfa963eccb147b49e1bf63b83994, type: 3}
+  jumpSFX: {fileID: 8300000, guid: a6b995db18c37474488a08feed52d63b, type: 3}
+  victorySFX: {fileID: 8300000, guid: c9e40497ee4001b45af368244ca16fc3, type: 3}
 --- !u!212 &212347067964585268
 SpriteRenderer:
   m_ObjectHideFlags: 1
