@@ -1167,6 +1167,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24b7c851b9b93b548960e7b84ab0a77e, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1053920794 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4330269143833156, guid: 24b7c851b9b93b548960e7b84ab0a77e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1053920793}
 --- !u!1001 &1066542543
 Prefab:
   m_ObjectHideFlags: 0
@@ -1962,6 +1967,7 @@ GameObject:
   - component: {fileID: 1734080114}
   - component: {fileID: 1734080113}
   - component: {fileID: 1734080117}
+  - component: {fileID: 1734080118}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2112,6 +2118,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1734080118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1734080112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91111c1c622e6d94d90ef3a928438813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1053920794}
+  damping: 0
+  lookAheadFactor: 0
+  lookAheadReturnSpeed: 0
+  lookAheadMoveThreshold: 0
 --- !u!1001 &1740732679
 Prefab:
   m_ObjectHideFlags: 0
