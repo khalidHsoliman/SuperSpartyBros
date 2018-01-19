@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4489420210770798}
   - component: {fileID: 212633753908116120}
   - component: {fileID: 61029771583405314}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Dirt_GrassOppositeSides
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,8 +97,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1134358965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0ddd808121fa64d0dbfb22dac3c8abc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
