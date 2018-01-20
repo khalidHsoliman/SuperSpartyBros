@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class EnemyStun : MonoBehaviour {
@@ -10,6 +10,9 @@ public class EnemyStun : MonoBehaviour {
 		{
 			// tell the enemy to be stunned
 			this.GetComponentInParent<Enemy>().Stunned();
+
+            // make the player bounce off the enemy
+            other.gameObject.GetComponent<CharacterController2D>().EnemyBounce();
 		}
 	}
 }
