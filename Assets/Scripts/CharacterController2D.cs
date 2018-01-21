@@ -47,7 +47,7 @@ public class CharacterController2D : MonoBehaviour {
 	bool facingRight = true;
 	bool isGrounded = false;
 	bool isRunning = false;
-    bool _canDoubleJump = false;
+    bool _canDoubleJump = false; 
 
 	// store the layer the player is on (setup in Awake)
 	int _playerLayer;
@@ -110,8 +110,11 @@ public class CharacterController2D : MonoBehaviour {
 		// whatIsGround layer
 		isGrounded = Physics2D.Linecast(_transform.position, groundCheck.position, whatIsGround);
 
+        //allow double jump 
         if (isGrounded)
-            _canDoubleJump = true; 
+        {
+            _canDoubleJump = true;
+        }
 
 		// Set the grounded animation states
 		_animator.SetBool("Grounded", isGrounded);
@@ -119,11 +122,10 @@ public class CharacterController2D : MonoBehaviour {
 		if(isGrounded && Input.GetButtonDown("Jump")) // If grounded AND jump button pressed, then allow the player to jump
 		{
             doJump();
-		} else if(_canDoubleJump && Input.GetButtonDown("Jump"))
+		} else if(_canDoubleJump && Input.GetButtonDown("Jump")) // if can double jump 
         {
             doJump();
-            //disable double jump after double jumping
-            _canDoubleJump = false; 
+            _canDoubleJump = false;
         }
 	
 		// If the player stops jumping mid jump and player is not yet falling
@@ -186,6 +188,17 @@ public class CharacterController2D : MonoBehaviour {
 		}
 	}
 
+    // make the play jump
+    void doJump()
+    {
+        // reset current vertical motion to 0 prior to jump
+        _vy = 0f;
+        // add a force in the up direction
+        _rigidbody.AddForce(new Vector2(0, jumpForce));
+        // play the jump sound
+        PlaySound(jumpSFX);
+    }
+
 	// do what needs to be done to freeze the player
  	void FreezeMotion() {
 		playerCanMove = false;
@@ -197,17 +210,6 @@ public class CharacterController2D : MonoBehaviour {
 		playerCanMove = true;
 		_rigidbody.isKinematic = false;
 	}
-
-    // make the player jump
-    void doJump() 
-    {
-        // reset current vertical motion to 0 prior to jump
-        _vy = 0f;
-        // add a force in the up direction
-        _rigidbody.AddForce(new Vector2(0, jumpForce));
-        // play the jump sound
-        PlaySound(jumpSFX);
-    }
 
 	// play sound through the audiosource on the gameobject
 	void PlaySound(AudioClip clip)
@@ -288,4 +290,3 @@ public class CharacterController2D : MonoBehaviour {
         doJump();
     }
 }
-

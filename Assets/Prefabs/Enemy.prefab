@@ -314,6 +314,7 @@ MonoBehaviour:
   loopWaypoints: 1
   stunnedSFX: {fileID: 8300000, guid: 48aeab870b8667841ad5a95041ec0131, type: 3}
   attackSFX: {fileID: 8300000, guid: 3d9e981cde874c847a669d4710575659, type: 3}
+  _myWaypointIndex: 0
 --- !u!212 &212155144371717014
 SpriteRenderer:
   m_ObjectHideFlags: 1
