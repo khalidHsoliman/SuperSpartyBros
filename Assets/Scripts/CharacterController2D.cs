@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement; // include so we can load new scenes
+using UnityStandardAssets.CrossPlatformInput; 
 
 public class CharacterController2D : MonoBehaviour {
 
@@ -89,7 +90,7 @@ public class CharacterController2D : MonoBehaviour {
 			return;
 
 		// determine horizontal velocity change based on the horizontal input
-		_vx = Input.GetAxisRaw ("Horizontal");
+		_vx = CrossPlatformInputManager.GetAxisRaw ("Horizontal");
 
 		// Determine if running based on the horizontal movement
 		if (_vx != 0) 
@@ -119,10 +120,10 @@ public class CharacterController2D : MonoBehaviour {
 		// Set the grounded animation states
 		_animator.SetBool("Grounded", isGrounded);
 
-		if(isGrounded && Input.GetButtonDown("Jump")) // If grounded AND jump button pressed, then allow the player to jump
+		if(isGrounded && CrossPlatformInputManager.GetButtonDown("Jump")) // If grounded AND jump button pressed, then allow the player to jump
 		{
             doJump();
-		} else if(_canDoubleJump && Input.GetButtonDown("Jump")) // if can double jump 
+		} else if(_canDoubleJump && CrossPlatformInputManager.GetButtonDown("Jump")) // if can double jump 
         {
             doJump();
             _canDoubleJump = false;
@@ -130,7 +131,7 @@ public class CharacterController2D : MonoBehaviour {
 	
 		// If the player stops jumping mid jump and player is not yet falling
 		// then set the vertical velocity to 0 (he will start to fall from gravity)
-		if(Input.GetButtonUp("Jump") && _vy>0f)
+		if(CrossPlatformInputManager.GetButtonUp("Jump") && _vy>0f)
 		{
 			_vy = 0f;
 		}
