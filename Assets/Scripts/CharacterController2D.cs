@@ -27,6 +27,7 @@ public class CharacterController2D : MonoBehaviour {
 
 	// SFXs
 	public AudioClip coinSFX;
+    public AudioClip lifeSFX;
 	public AudioClip deathSFX;
 	public AudioClip fallSFX;
 	public AudioClip jumpSFX;
@@ -266,6 +267,14 @@ public class CharacterController2D : MonoBehaviour {
 		if (GameManager.gm) // add the points through the game manager, if it is available
 			GameManager.gm.AddPoints(amount);
 	}
+
+    public void CollectLife()
+    {
+        PlaySound(lifeSFX);
+
+        if (GameManager.gm)
+            GameManager.gm.AddLife(); 
+    }
 
 	// public function on victory over the level
 	public void Victory() {

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI; // include UI namespace so can reference UI elements
 using UnityEngine.SceneManagement; // include so we can manipulate SceneManager
@@ -148,6 +148,26 @@ public class GameManager : MonoBehaviour {
 			UIHighScore.text = "Highscore: "+score.ToString();
 		}
 	}
+
+    public void AddLife()
+    {
+        lives += 1;
+
+        for (int i = 0; i < UIExtraLives.Length; i++)
+        {
+            if (i < (lives - 1))
+            { // show one less than the number of lives since you only typically show lifes after the current life in UI
+                UIExtraLives[i].SetActive(true);
+            }
+            else
+            {
+                UIExtraLives[i].SetActive(false);
+            }
+        }
+
+        if (lives >= 10)
+            lives = 10; 
+    }
 
 	// public function to remove player life and reset game accordingly
 	public void ResetGame() {
