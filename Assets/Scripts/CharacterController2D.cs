@@ -49,7 +49,8 @@ public class CharacterController2D : MonoBehaviour {
 	bool facingRight = true;
 	bool isGrounded = false;
 	bool isRunning = false;
-    bool _canDoubleJump = false; 
+    bool isJumping = false;
+    bool _canDoubleJump = false;
 
 	// store the layer the player is on (setup in Awake)
 	int _playerLayer;
@@ -116,23 +117,27 @@ public class CharacterController2D : MonoBehaviour {
         if (isGrounded)
         {
             _canDoubleJump = true;
+            isJumping = false; 
         }
 
 		// Set the grounded animation states
 		_animator.SetBool("Grounded", isGrounded);
 
-		if(isGrounded && CrossPlatformInputManager.GetButtonDown("Jump")) // If grounded AND jump button pressed, then allow the player to jump
+        if (isGrounded && CrossPlatformInputManager.GetButtonDown("Jump")) // If grounded AND jump button pressed, then allow the player to jump
 		{
             doJump();
 		} else if(_canDoubleJump && CrossPlatformInputManager.GetButtonDown("Jump")) // if can double jump 
         {
+            isJumping = true;
             doJump();
             _canDoubleJump = false;
         }
-	
-		// If the player stops jumping mid jump and player is not yet falling
-		// then set the vertical velocity to 0 (he will start to fall from gravity)
-		if(CrossPlatformInputManager.GetButtonUp("Jump") && _vy>0f)
+
+        _animator.SetBool("Jumping", isJumping);
+
+        // If the player stops jumping mid jump and player is not yet falling
+        // then set the vertical velocity to 0 (he will start to fall from gravity)
+        if (CrossPlatformInputManager.GetButtonUp("Jump") && _vy>0f)
 		{
 			_vy = 0f;
 		}
