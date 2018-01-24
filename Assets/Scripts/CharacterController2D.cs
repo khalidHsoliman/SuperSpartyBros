@@ -28,6 +28,8 @@ public class CharacterController2D : MonoBehaviour {
 	// SFXs
 	public AudioClip coinSFX;
     public AudioClip lifeSFX;
+    public AudioClip redMushroomSFX;
+    public AudioClip orangeMushroomSFX; 
 	public AudioClip deathSFX;
 	public AudioClip fallSFX;
 	public AudioClip jumpSFX;
@@ -266,7 +268,8 @@ public class CharacterController2D : MonoBehaviour {
 		}
 	}
 
-	public void CollectCoin(int amount) {
+	public void CollectCoin(int amount)
+    {
 		PlaySound(coinSFX);
 
 		if (GameManager.gm) // add the points through the game manager, if it is available
@@ -281,8 +284,16 @@ public class CharacterController2D : MonoBehaviour {
             GameManager.gm.AddLife(); 
     }
 
-	// public function on victory over the level
-	public void Victory() {
+    public void CollectOrangeMushroom()
+    {
+        PlaySound(orangeMushroomSFX);
+
+        if (GameManager.gm)
+            GameManager.gm.AddSpeed(); 
+    }
+
+    // public function on victory over the level
+    public void Victory() {
 		PlaySound(victorySFX);
 		FreezeMotion ();
 		_animator.SetTrigger("Victory");

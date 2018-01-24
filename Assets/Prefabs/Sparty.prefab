@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417931105568736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -2, z: 0.000000018626}
+  m_LocalPosition: {x: 11, y: -2, z: 0.000000018626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4998029474653680}
@@ -253,6 +253,8 @@ MonoBehaviour:
   playerCanMove: 1
   coinSFX: {fileID: 8300000, guid: a3ca87bd3844d8e4bbff32f7c5333285, type: 3}
   lifeSFX: {fileID: 8300000, guid: 2470f0dc702baa94fab15278a3d11a31, type: 3}
+  redMushroomSFX: {fileID: 8300000, guid: 07e272a1a01f57246a33a93eba9f98b9, type: 3}
+  orangeMushroomSFX: {fileID: 8300000, guid: fb7f3e2c811c291498bc976e558f4912, type: 3}
   deathSFX: {fileID: 8300000, guid: 3216f7c46a1dbf34eb3c97731e80e7ac, type: 3}
   fallSFX: {fileID: 8300000, guid: 3044bfa963eccb147b49e1bf63b83994, type: 3}
   jumpSFX: {fileID: 8300000, guid: a6b995db18c37474488a08feed52d63b, type: 3}

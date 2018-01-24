@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 	public int highscore = 0;
 	public int startLives = 3;
 	public int lives = 3;
+    public float powerUpTime = 10f;
 
 	// UI elements to control
 	public Text UIScore;
@@ -29,9 +30,10 @@ public class GameManager : MonoBehaviour {
 	GameObject _player;
 	Vector3 _spawnLocation;
 	Scene _scene;
+    float timePassed = 0f;
 
-	// set things up here
-	void Awake () {
+    // set things up here
+    void Awake () {
 		// setup reference to game manager
 		if (gm == null)
 			gm = this.GetComponent<GameManager>();
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour {
 
 	// game loop
 	void Update() {
+
 		// if ESC pressed then pause the game
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			if (Time.timeScale > 0f) {
@@ -169,8 +172,14 @@ public class GameManager : MonoBehaviour {
             lives = 10; 
     }
 
-	// public function to remove player life and reset game accordingly
-	public void ResetGame() {
+    public void AddSpeed()
+    {
+        timePassed = 0;
+        StartCoroutine(SpeedUp());
+    }
+
+    // public function to remove player life and reset game accordingly
+    public void ResetGame() {
 		// remove life and update GUI
 		lives--;
 		refreshGUI();
@@ -200,4 +209,18 @@ public class GameManager : MonoBehaviour {
 		yield return new WaitForSeconds(3.5f);
 		SceneManager.LoadScene(levelAfterVictory);
 	}
+
+    IEnumerator SpeedUp()
+    {
+        while (timePassed < powerUpTime)
+        {
+            _player.GetComponent<CharacterController2D>().moveSpeed = 6;
+
+            timePassed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        _player.GetComponent<CharacterController2D>().moveSpeed = 3;
+    }
 }
