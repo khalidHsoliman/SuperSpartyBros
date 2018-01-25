@@ -17,14 +17,19 @@ public class GameManager : MonoBehaviour {
 	public int highscore = 0;
 	public int startLives = 3;
 	public int lives = 3;
+
     public float powerUpTime = 10f;
 
-	// UI elements to control
-	public Text UIScore;
+    public bool isInvulnerable = false; 
+
+    // UI elements to control
+    public Text UIScore;
 	public Text UIHighScore;
 	public Text UILevel;
 	public GameObject[] UIExtraLives;
 	public GameObject UIGamePaused;
+
+    public AudioSource backgroundMusic;
 
 	// private variables
 	GameObject _player;
@@ -178,6 +183,12 @@ public class GameManager : MonoBehaviour {
         StartCoroutine(SpeedUp());
     }
 
+    public void makeVulnerable()
+    {
+        timePassed = 0;
+        StartCoroutine(Vulnerable());
+    }
+
     // public function to remove player life and reset game accordingly
     public void ResetGame() {
 		// remove life and update GUI
@@ -212,9 +223,14 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator SpeedUp()
     {
+
+        _player.GetComponent<CharacterController2D>().moveSpeed = 6;
+
+        if (backgroundMusic)
+            backgroundMusic.pitch = 1.25f; 
+
         while (timePassed < powerUpTime)
         {
-            _player.GetComponent<CharacterController2D>().moveSpeed = 6;
 
             timePassed += Time.deltaTime;
 
@@ -222,5 +238,29 @@ public class GameManager : MonoBehaviour {
         }
 
         _player.GetComponent<CharacterController2D>().moveSpeed = 3;
+
+        if (backgroundMusic)
+            backgroundMusic.pitch = 1f;
+    }
+
+    IEnumerator Vulnerable()
+    {
+        if (!isInvulnerable)
+            isInvulnerable = true;
+
+        _player.GetComponent<Animator>().SetBool("Invulnerable", isInvulnerable);
+
+
+        while (timePassed < powerUpTime)
+        {
+            timePassed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        isInvulnerable = false;
+
+        _player.GetComponent<Animator>().SetBool("Invulnerable", isInvulnerable);
+
     }
 }

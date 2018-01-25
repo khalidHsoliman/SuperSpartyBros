@@ -7,7 +7,7 @@ public class Items : MonoBehaviour {
     public bool taken = false;
     public GameObject explosion;
 
-    public enum collectedItems {Coin,Life,OrangeMushroom};
+    public enum collectedItems {Coin,Life,OrangeMushroom,RedMushroom};
 
     public collectedItems item = collectedItems.Coin; 
 
@@ -38,6 +38,10 @@ public class Items : MonoBehaviour {
 
                 case collectedItems.OrangeMushroom:
                     other.gameObject.GetComponent<CharacterController2D>().CollectOrangeMushroom();
+                    break;
+
+                case collectedItems.RedMushroom:
+                    other.gameObject.GetComponent<CharacterController2D>().CollectRedMushroom();
                     break;
             }
 

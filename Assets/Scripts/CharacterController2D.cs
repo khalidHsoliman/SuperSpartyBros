@@ -228,7 +228,7 @@ public class CharacterController2D : MonoBehaviour {
 
 	// public function to apply damage to the player
 	public void ApplyDamage (int damage) {
-		if (playerCanMove) {
+		if (playerCanMove && !GameManager.gm.isInvulnerable) {
 			playerHealth -= damage;
 
 			if (playerHealth <= 0) { // player is now dead, so start dying
@@ -290,6 +290,14 @@ public class CharacterController2D : MonoBehaviour {
 
         if (GameManager.gm)
             GameManager.gm.AddSpeed(); 
+    }
+
+    public void CollectRedMushroom()
+    {
+        PlaySound(redMushroomSFX);
+
+        if (GameManager.gm)
+            GameManager.gm.makeVulnerable();
     }
 
     // public function on victory over the level
