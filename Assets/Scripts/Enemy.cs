@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
@@ -210,9 +210,9 @@ public class Enemy : MonoBehaviour {
 			// provide the player with feedback that enemy is stunned
 			playSound(stunnedSFX);
 			_animator.SetTrigger("Stunned");
-			
-			// stop moving
-			_rigidbody.velocity = new Vector2(0, 0);
+
+            // stop moving
+            _rigidbody.velocity = new Vector2(0, 0);
 			
 			// switch layer to stunned layer so no collisions with the player while stunned
 			this.gameObject.layer = _stunnedLayer;
