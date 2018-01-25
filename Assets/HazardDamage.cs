@@ -12,7 +12,7 @@ public class HazardDamage : MonoBehaviour {
         {
             CharacterController2D player = collision.gameObject.GetComponent<CharacterController2D>();
 
-            player.ApplyDamage(damageAmount); 
+            player.ApplyDamage(damageAmount);
         }
     }
 }
